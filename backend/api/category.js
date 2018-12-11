@@ -49,7 +49,7 @@ module.exports = app => {
 
     const withPath = categories => {
         const getParent = (categories, parentId) => {
-            const parent = categories.filter(parent.id === parentId);
+            const parent = categories.filter(parent => parent.id === parentId);
             return parent.length ? parent[0] : null;
         };
 
@@ -76,7 +76,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('categories')
-            .then(categories => res.json(categories))
+            .then(categories => res.json(withPath(categories)))
             .catch(err => res.status(500).send(err));
     };
 
