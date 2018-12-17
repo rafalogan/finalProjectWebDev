@@ -13,7 +13,6 @@ module.exports = app => {
         if (!user) return res.status(400).send('Usuário não encontrado!');
 
         const isMatch = bcrypt.compareSync(req.body.password, user.password);
-
         if (!isMatch) return res.status(401).send('Email/Senha inválidos!');
 
         const now = Math.floor(Date.now() / 1000);
