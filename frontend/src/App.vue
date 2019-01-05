@@ -1,6 +1,6 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header title="RafaDraw - Projeto Final - Base de Conhecimento" :hideToggle="false"/>
+		<Header title="RafaDraw - Projeto Final - Base de Conhecimento" :hideToggle="false" :hideUserDopdown="false"/>
 		<Menu />
 		<Content />
 		<Footer />
