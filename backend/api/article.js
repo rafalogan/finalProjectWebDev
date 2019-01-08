@@ -2,7 +2,6 @@ const queries = require('./queries');
 
 module.exports = app => {
     const { existsOrError, notExistsOrError }  = app.api.validate;
-    const limit = 10; // usado na paginação
 
     const save = (req, res) => {
         const article = { ...req.body };
@@ -49,8 +48,9 @@ module.exports = app => {
         }
     };
 
+    const limit = 3; // usado na paginação
     const get = async (req, res) => {
-        const page = req.query.pagen || 1;
+        const page = req.query.page || 1;
         const result = await app.db('articles').count('id').first();
         const count = parseInt(result.count);
 
